@@ -1,2388 +1,382 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
-    <head>
-	  <meta charset="UTF-8">
-	  <meta name="Generator" content="EditPlus®">
-	  <meta name="Author" content="">
-	  <meta name="Keywords" content="">
-	  <meta name="Description" content="">
-	  <title>Document</title>
-	  <link rel="stylesheet" href="./css/common.css" />
-	  <link rel="stylesheet" href="./css/index.css" />
-	  <link rel="stylesheet" href="./css/hover.css" />
-    </head>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<title>tao  html</title>
+		<style>
+			body,ul,h1,h2,h3,h4,h5,h6,p{margin:0;padding:0;}
+			ul{list-style:none;}
+			a{text-decoration:none;color:#000;}
+			.clearfix:after{display:none;clear:both;content:'';}
+			.fl{float:left;}
+			.fr{float:right;}
+			#box{
+				position:relative;
+				width:512px;
+				height:768px;
+				margin: 10px auto 0;
+				background-image:url("img/bg_1.jpg");
+			}
+			#box.on{
+				animation:bgmove 20s linear infinite;
+			}
+			@keyframes bgmove{
+				from{background-position:0 0;}
+				to{background-position: 0 768px};
+			}
+			#box .mask{
+				width:100%;
+				height:100%;
+			}
+			#box .mask h1{
+				padding-top:60px;
+				font-size:46px;
+				color:#fff;
+				line-height:56px;
+				text-align:center;
+			}
+			#box ul{
+				width:250px;
+				margin: 200px auto 0;
+				line-height:50px;
+				text-align:center;
+				font-weight:bolder;
+			}
+			#box ul li{
+				width:250px;
+				height:50px;
+				margin: 30px 0;
+				background-color:#fff;
+				cursor:pointer;
+			}
+			#box ul li:nth-last-of-type(1){
+				background-color:red;
+				color:#fff;
+			}
+			#box ul li:hover{
+				background-color:pink;
+			}
+			.planes .active-plane,.planes .img-fire,.planes .enemy-small,.planes .enemy-big,.planes     .enemy-boom{
+				position:absolute;
+			}
+			.planes     .enemy-boom.on{
+				animation: opacities 1s;
+			}
+			@keyframes opacities{
+				from{opacity:1;}
+				to{opacity:0;}
+			}
+			.planes .score{
+				display:none;
+				position:absolute;
+				left:20px;
+				top:20px;
+				font-size:18px;
+				color:#fff;
+			}
+			.final{
+				display:none;
+				position:absolute;
+				left:0;
+				top:0;
+				width:100%;
+				height:100%;
+			}
+			.final h3{
+				margin: 100px auto;
+				text-align:center;
+				color:#fff;
+				font-size:25px;
+			}
+			.final p{
+				display:flex;
+				justify-content:space-around;
+				align-items:center;
+				height:50px;
+			}
+			.final p button{
+				
+				width:100px;
+				height:50px;
+				background-color:#ccc;
+				line-height:50px;
+				outline:0;
+				color:#555;
+			}
+		</style>
+	</head>
     <body>
-		<div id="wrap w-100">
-			<!-- 头部导航 -->
-			<nav class="top-nav w-100 ps-f">
-				<div class="left-nav fl clearfix">
-					<div class="left clearfix fl">
-						<p class="down-load fl">扫描下载</p>
-						<img class='fl' src="images/qrcode.png" alt="" width='100%' height='100%'/>
-					</div>
-					<div class="right fl">
-						<div class="right-img fl"></div>
-						<div class="title fl">
-							<h3>阴阳师</h3>
-							<p>网易和风匠心巨制</p>
-						</div>
-					</div>
-				</div>
-				<div class="right-nav fr">
-					<ul class='clearfix'>
-						<li>
-							<a href="javascript:void(0)">官网首页</a>
-						</li>
-						<li></li>
-						<li>
-							<a href="javascript:void(0)">新闻资讯</a>
-						</li>
-						<li></li>
-						<li>
-							<a href="javascript:void(0)">游戏攻略</a>
-						</li>
-						<li></li>
-						<li>
-							<a href="javascript:void(0)">游戏攻略</a>
-						</li>
-						<li></li>
-						<li class='area'>
-							<a href="javascript:void(0)">同人专区</a>
-							<div class="hid-list w-100 ps-a">
-								<ul class='clearfix'>
-									<li class='fr ps-r'>
-										<a class='ps-a' href="javascript:void(0)">
-											<i class='common-bg'></i>
-											<span>玩家COS</span>
-										</a>
-									</li>
-									<li class='fr ps-r'>
-										<a class='ps-a' href="javascript:void(0)">
-											<i class='common-bg'></i>
-											<span>同人绘画</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li></li>
-						<li class='area'>
-							<a href="javascript:void(0)">官方渠道</a>
-							<div class="hid-list w-100 ps-a">
-								<ul class='clearfix'>
-									<li class='fr ps-r'>
-										<a class='ps-a' href="javascript:void(0)">
-											<i class='common-bg'></i>
-											<span>玩家COS</span>
-										</a>
-									</li>
-									<li class='fr ps-r'>
-										<a class='ps-a' href="javascript:void(0)">
-											<i class='common-bg'></i>
-											<span>同人绘画</span>
-										</a>
-										<li class='fr ps-r'>
-										<a class='ps-a' href="javascript:void(0)">
-											<i class='common-bg'></i>
-											<span>同人绘画</span>
-										</a>
-									</li>
-									<li class='fr ps-r'>
-										<a class='ps-a' href="javascript:void(0)">
-											<i class='common-bg'></i>
-											<span>同人绘画</span>
-										</a>
-									</li>
-									</li>
-								</ul>
+		<div id="box">
+			<div class="mask">
+				<h1>打飞机v1.0</h1>
+				<ul>
+					<li>简单</li>
+					<li>中等</li>
+					<li>困难</li>
+					<li>飞哥附体</li>
+				</ul>
+			</div>
+			
+			<div class="planes">
+				<p class="score">0000000</p>
+			</div>
 
-							</div>
-						</li>
-					</ul>
-				</div>
-			</nav>
-			<!-- 头部banner -->
-			<article class='banner w-100 ps-r'>
-				<section class='name ps-a'></section>
-				<section class='center-banner'>
-					<div class="banner-area ps-r">
-						<div class="banner-img ps-r">
-							<a class='ps-a' href="javascript:void(0)"></a>
-							<a class='ps-a' href="javascript:void(0)"></a>
-							<a class='ps-a' href="javascript:void(0)"></a>
-							<a class='ps-a' href="javascript:void(0)"></a>
-						</div>
-						<a href="javascript:void(0)" class="controller ps-a"></a>
-						<div class="animal ps-a">
-							<img src="images/index/role/bunny.gif" alt="" width='100%' height='100%'/>
-						</div>
-						<div class="bottom-wave ps-a">
-							<img src="images/index/role/role_botbg.png" alt="" width='805' height='23'/>
-						</div>
-					</div>
-				</section>
-				<section class='download ps-a'>
-					<div class="bg"></div>
-					<div class="content">
-						<div class="left fl">
-							<i class='fl'></i>
-							<p class='fl'></p>
-							<div class="erweicode ps-r fl">
-								<img src="images/qrcode.png" alt="" width='100%' height='100%'/>
-								<img class='ps-a' src="images/index/line.png" alt="" width='100%' height='9'/>
-							</div>
-						</div>
-						<div class="right fl">
-							<i></i>
-							<i></i>
-						</div>
-					</div>
-				</section>
-			</article>
-			<!--下部banner-->
-			<article class='banner-style clearfix ps-r'>
-				<section class='left fl clearfix ps-r'>
-					<div class="banner-img fl ps-r">
-						<ul class='clearfix ps-a'>
-							<li>
-								<a href="javascript:void(0)">
-									<img src="images/index/content/1.jpg" alt="" width='360' height='270'/>
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)">
-									<img src="images/index/content/2.jpg" alt="" width='360' height='270'/>
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)">
-									<img src="images/index/content/3.jpg" alt="" width='360' height='270'/>
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)">
-									<img src="images/index/content/4.jpg" alt="" width='360' height='270'/>
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)">
-									<img src="images/index/content/5.jpg" alt="" width='360' height='270'/>
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)">
-									<img src="images/index/content/1.jpg" alt="" width='360' height='270'/>
-								</a>
-							</li>
-						</ul>
-						<div class="banner-controller ps-a">
-							<p class='on'></p>
-							<p></p>
-							<p></p>
-							<p></p>
-							<p></p>
-						</div>
-					</div>
-					<div class="banner-info ps-r fl">
-						<div class="title">
-							<a class='ps-r' href="javascript:void(0)">
-								<i class='ps-a bg'></i>
-								<span class='ps-a'></span>
-								<i class='ps-a' ></i>
-							</a>
-							<a class='ps-r' href="javascript:void(0)">
-								<i class='ps-a bg'></i>
-								<span class='ps-a'></span>
-								<i class='ps-a' ></i>
-							</a>
-							<a class='ps-r' href="javascript:void(0)">
-								<i class='ps-a bg'></i>
-								<span class='ps-a'></span>
-								<i class='ps-a' ></i>
-							</a>
-							<a class='ps-r' href="javascript:void(0)">
-								<i class='ps-a bg'></i>
-								<span class='ps-a'></span>
-								<i class='ps-a' ></i>
-							</a>
-							<a class='ps-r' href="javascript:void(0)">
-								<i class='ps-a bg'></i>
-								<span class='ps-a'></span>
-							</a>
-						</div>
-						<div class="banner-content ps-a clearfix">
-							<ul class='clearfix fl'>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》×bilibili举办式神歌舞同欢会 妖约现世盛夏</span>
-										<span>2017-06-13</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》×半次元打造百魅夜行第二季  开启唯美和风COSPLAY嘉年华</span>
-										<span>2017-06-12</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【活动】 声控召唤 第二季《阴阳师》广播剧配音大赛来袭</span>
-										<span>2017-06-12</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》同人社区全新上线，玩转精彩同人</span>
-										<span>2017-06-11</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【公告】 《阴阳师》体验服6月9日维护更新公告</span>
-										<span>2017-06-11</span>
-									</a>
-								</li>
-							</ul>
-							<ul class='clearfix fl'>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》×bilibili举办式神歌舞同欢会 妖约现世盛夏</span>
-										<span>2017-06-13</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》×半次元打造百魅夜行第二季  开启唯美和风COSPLAY嘉年华</span>
-										<span>2017-06-12</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【活动】 声控召唤 第二季《阴阳师》广播剧配音大赛来袭</span>
-										<span>2017-06-12</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》同人社区全新上线，玩转精彩同人</span>
-										<span>2017-06-11</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【公告】 《阴阳师》体验服6月9日维护更新公告</span>
-										<span>2017-06-11</span>
-									</a>
-								</li>
-							</ul>
-							<ul class='clearfix fl'>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》×bilibili举办式神歌舞同欢会 妖约现世盛夏</span>
-										<span>2017-06-13</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》×半次元打造百魅夜行第二季  开启唯美和风COSPLAY嘉年华</span>
-										<span>2017-06-12</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【活动】 声控召唤 第二季《阴阳师》广播剧配音大赛来袭</span>
-										<span>2017-06-12</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》同人社区全新上线，玩转精彩同人</span>
-										<span>2017-06-11</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【公告】 《阴阳师》体验服6月9日维护更新公告</span>
-										<span>2017-06-11</span>
-									</a>
-								</li>
-							</ul>
-							<ul class='clearfix fl'>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》×bilibili举办式神歌舞同欢会 妖约现世盛夏</span>
-										<span>2017-06-13</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》×半次元打造百魅夜行第二季  开启唯美和风COSPLAY嘉年华</span>
-										<span>2017-06-12</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【活动】 声控召唤 第二季《阴阳师》广播剧配音大赛来袭</span>
-										<span>2017-06-12</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》同人社区全新上线，玩转精彩同人</span>
-										<span>2017-06-11</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【公告】 《阴阳师》体验服6月9日维护更新公告</span>
-										<span>2017-06-11</span>
-									</a>
-								</li>
-							</ul>
-							<ul class='clearfix fl'>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》×bilibili举办式神歌舞同欢会 妖约现世盛夏</span>
-										<span>2017-06-13</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》×半次元打造百魅夜行第二季  开启唯美和风COSPLAY嘉年华</span>
-										<span>2017-06-12</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【活动】 声控召唤 第二季《阴阳师》广播剧配音大赛来袭</span>
-										<span>2017-06-12</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【新闻】 《阴阳师》同人社区全新上线，玩转精彩同人</span>
-										<span>2017-06-11</span>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<span>-【公告】 《阴阳师》体验服6月9日维护更新公告</span>
-										<span>2017-06-11</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="bottom-info clearfix ps-a">
-						<p class="left fl ps-r">
-							<i class='ps-a'></i>
-						</p>
-						<div class="right fr clearfix">
-							<p class='left-god ps-r fl'>
-								<i class='ps-a'></i>
-								<span class='ps-a'></span>
-							</p>
-							<span class='fl'></span>
-							<p class='ps-r fl'>
-								<i class='ps-a'></i>
-								<span class='ps-a'></span>
-							</p>
-						</div>
-					</div>
-				</section>
-				<section class="right ps-a">
-					<p class='game-calender ps-a'></p>
-					<ul class="inner-content ps-r clearfix">
-						<li class='fr li1 li-right ps-a'>
-							<a href="javascript:void(0)">
-								<p>协同斗技,每周六日14:00-15:30斗技</p>
-								<p>周一至周五  11:00-13:00,20:00-22:00</p>
-								<p>周一至周五  11:00-13:00,20:00-22:00</p>
-							</a>
-						</li>
-						<li class='li-left li2'>
-							<a href="javascript:void(0)"></a>
-						</li>
-						<li class='fr li-right li3 '>
-							<a href="javascript:void(0)"></a>
-						</li>
-						<li class='li4 fl li-left'>
-							<a href="javascript:void(0)"></a>
-						</li>
-						<li class='li5 ps-r fr li-right'>
-							<a href="javascript:void(0)"></a>
-						</li>
-						<li class='li6 fl li-left'>
-							<a href="javascript:void(0)"></a>
-						</li>
-						<li class='li7 fr li-right'>
-							<a href="javascript:void(0)"></a>
-						</li>
-						<li class='li8 fl li-left'>
-							<a href="javascript:void(0)"></a>
-						</li>
-						<li class='li9 fr li-right'>
-							<a href="javascript:void(0)"></a>
-						</li>
-					</ul>
-				</section>
-			</article>
-			<!-- 切换banner -->
-			<article class='banner-character'>
-				<div class="container ps-r">
-					<div class="all-character ps-a">
-						<div class="first ps-a content on">
-							<ul class='clearfix'>
-								<li class='on'>
-									<a class='on' href="javascript:void(0)">全部</a>
-								</li>
-								<li class='on'>
-									<a href="javascript:void(0)">SSR</a>
-								</li>
-								<li class='on'>
-									<a href="javascript:void(0)">SR</a>
-								</li>
-								<li class='on'>
-									<a href="javascript:void(0)">R</a>
-								</li>
-								<li class='on'>
-									<a href="javascript:void(0)">N</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<img src="images/index/content/viewAll_btn.png" alt="" width='131' height='29'>
-									</a>
-								</li>
-							</ul>
-							<div class="bottom-banner">
-								<div class="all-kind ps-r">
-									<div class="list-group on ps-a">
-										<p class='left-btn btn ps-a'></p>
-										<p class='right-btn btn ps-a'></p>
-										<div class="list list1 ps-a">
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/288.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>彼岸花</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/287.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>匣中少女</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/285.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto3'>鸩</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/286.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>以津真天</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/283.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto3'>荒</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/282.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>金鱼姬</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/275.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>万年竹</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/273.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>青坊主</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/274.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>古笼火</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/276.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>夜叉</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>黑童子</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>白童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/279.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>花鸟卷</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/281.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>烟烟罗</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/280.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>辉夜姬</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/200.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>桃花妖</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/201.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>雪女</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/202.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>三尾狐</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/203.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>灯笼鬼</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/205.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>座敷童子</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/206.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>鲤鱼精</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/207.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>九命猫</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>黑童子</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>白童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/279.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>花鸟卷</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/281.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>烟烟罗</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/280.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>辉夜姬</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/200.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>桃花妖</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/201.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>雪女</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/202.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>三尾狐</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/203.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>灯笼鬼</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/205.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>座敷童子</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/206.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>鲤鱼精</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/207.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>九命猫</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>黑童子</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>白童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/279.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>花鸟卷</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/281.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>烟烟罗</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/280.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>辉夜姬</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/200.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>桃花妖</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/201.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>雪女</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/202.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>三尾狐</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/203.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>灯笼鬼</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/205.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>座敷童子</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/206.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>鲤鱼精</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/207.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>九命猫</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>黑童子</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>白童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/279.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>花鸟卷</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/281.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>烟烟罗</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/280.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>辉夜姬</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/200.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>桃花妖</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/201.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>雪女</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/202.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>三尾狐</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/203.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>灯笼鬼</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/205.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>座敷童子</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/206.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>鲤鱼精</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/207.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>九命猫</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>黑童子</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>白童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/279.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>花鸟卷</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/281.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>烟烟罗</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/280.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>辉夜姬</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/200.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>桃花妖</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/201.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>雪女</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/202.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>三尾狐</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/203.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>灯笼鬼</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/205.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>座敷童子</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/206.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>鲤鱼精</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/207.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>九命猫</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>黑童子</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>白童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/279.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>花鸟卷</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/281.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>烟烟罗</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/280.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>辉夜姬</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/200.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>桃花妖</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/201.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>雪女</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/202.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>三尾狐</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/203.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>灯笼鬼</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/205.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>座敷童子</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/206.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>鲤鱼精</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/207.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>九命猫</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>黑童子</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>白童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/279.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>花鸟卷</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/281.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>烟烟罗</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/280.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>辉夜姬</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/200.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>桃花妖</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/201.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>雪女</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/202.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>三尾狐</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/203.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>灯笼鬼</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/205.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>座敷童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-										</div>
-									</div>
-									<div class="list-group ps-a">
-										<p class='left-btn btn ps-a'></p>
-										<p class='right-btn btn ps-a'></p>
-										<div class="list list2 ps-a">
-										<ul class='fl'>
-											<li>
-												<div class="top ps-r">
-													<img src="images/index/content/shishen/279.png" alt="" width='85' height='88'>
-													<p class='ps-a'>
-														<span  class='auto1'>花鸟卷</span>
-													</p>
-													<i class='ps-a'></i>
-												</div>
-												<div class="top ps-r">
-													<img src="images/index/content/shishen/281.png" alt="" width='85' height='88'>
-													<p class='ps-a'>
-														<span  class='auto1'>烟烟罗</span>
-													</p>
-													<i class='ps-a'></i>
-												</div>
-											</li>
-											<li>
-												<div class="top ps-r">
-													<img src="images/index/content/shishen/280.png" alt="" width='85' height='88'>
-													<p class='ps-a'>
-														<span  class='auto1'>辉夜姬</span>
-													</p>
-												</div>
-												<div class="top ps-r">
-													<img src="images/index/content/shishen/200.png" alt="" width='85' height='88'>
-													<p class='ps-a'>
-														<span  class='auto2'>桃花妖</span>
-													</p>
-												</div>
-											</li>
-											<li>
-												<div class="top ps-r">
-													<img src="images/index/content/shishen/201.png" alt="" width='85' height='88'>
-													<p class='ps-a'>
-														<span  class='auto4'>雪女</span>
-													</p>
-												</div>
-												<div class="top ps-r">
-													<img src="images/index/content/shishen/202.png" alt="" width='85' height='88'>
-													<p class='ps-a'>
-														<span  class='auto1'>三尾狐</span>
-													</p>
-												</div>
-											</li>
-											<li>
-												<div class="top ps-r">
-													<img src="images/index/content/shishen/203.png" alt="" width='85' height='88'>
-													<p class='ps-a'>
-														<span  class='auto1'>灯笼鬼</span>
-													</p>
-												</div>
-												<div class="top ps-r">
-													<img src="images/index/content/shishen/205.png" alt="" width='85' height='88'>
-													<p class='ps-a'>
-														<span  class='auto3'>座敷童子</span>
-													</p>
-												</div>
-											</li>
-											<li>
-												<div class="top ps-r">
-													<img src="images/index/content/shishen/274.png" alt="" width='85' height='88'>
-													<p class='ps-a'>
-														<span  class='auto1'>古笼火</span>
-													</p>
-												</div>
-												<div class="top ps-r">
-													<img src="images/index/content/shishen/276.png" alt="" width='85' height='88'>
-													<p class='ps-a'>
-														<span  class='auto4'>夜叉</span>
-													</p>
-												</div>
-											</li>
-											<li>
-												<div class="top ps-r">
-													<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-													<p class='ps-a'>
-														<span  class='auto1'>黑童子</span>
-													</p>
-												</div>
-												<div class="top ps-r">
-													<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-													<p class='ps-a'>
-														<span  class='auto1'>白童子</span>
-													</p>
-												</div>
-											</li>
-										</ul>
-										<ul class='fl'>
-											<li>
-												<div class="top ps-r">
-													<img src="images/index/content/shishen/279.png" alt="" width='85' height='88'>
-													<p class='ps-a'>
-														<span  class='auto1'>花鸟卷</span>
-													</p>
-													<i class='ps-a'></i>
-												</div>
-												<div class="top ps-r">
-													<img src="images/index/content/shishen/281.png" alt="" width='85' height='88'>
-													<p class='ps-a'>
-														<span  class='auto1'>烟烟罗</span>
-													</p>
-													<i class='ps-a'></i>
-												</div>
-											</li>
-										</ul>
-									</div>
-									</div>
-									<div class="list-group ps-a">
-										<p class='left-btn btn ps-a'></p>
-										<p class='right-btn btn ps-a'></p>
-										<div class="list list3 ps-a">
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/288.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>彼岸花</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/287.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>匣中少女</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/285.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto3'>鸩</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/286.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>以津真天</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/283.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto3'>荒</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/282.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>金鱼姬</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/275.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>万年竹</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/273.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>青坊主</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/274.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>古笼火</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/276.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>夜叉</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>黑童子</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>白童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/279.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>花鸟卷</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/281.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>烟烟罗</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/280.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>辉夜姬</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/200.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>桃花妖</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/201.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>雪女</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/202.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>三尾狐</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/203.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>灯笼鬼</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/205.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>座敷童子</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/206.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>鲤鱼精</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/207.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>九命猫</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>黑童子</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>白童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/279.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>花鸟卷</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/281.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>烟烟罗</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/280.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>辉夜姬</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/200.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>桃花妖</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/201.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>雪女</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/202.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>三尾狐</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/203.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>灯笼鬼</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/205.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>座敷童子</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/206.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>鲤鱼精</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/207.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>九命猫</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>黑童子</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>白童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/279.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>花鸟卷</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/281.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>烟烟罗</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/280.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>辉夜姬</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/200.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>桃花妖</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/201.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>雪女</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/202.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>三尾狐</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/203.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>灯笼鬼</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/205.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>座敷童子</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/206.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>鲤鱼精</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/207.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>九命猫</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>黑童子</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>白童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-										</div>
-									</div>
-									<div class="list-group ps-a">
-										<p class='left-btn btn ps-a'></p>
-										<p class='right-btn btn ps-a'></p>
-										<div class="list list4 ps-a">
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/288.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>彼岸花</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/287.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>匣中少女</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/285.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto3'>鸩</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/286.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>以津真天</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/283.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto3'>荒</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/282.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>金鱼姬</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/275.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>万年竹</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/273.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>青坊主</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/274.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>古笼火</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/276.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>夜叉</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>黑童子</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>白童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/279.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>花鸟卷</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/281.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>烟烟罗</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/280.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>辉夜姬</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/200.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>桃花妖</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/201.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>雪女</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/202.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>三尾狐</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/203.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>灯笼鬼</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/205.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>座敷童子</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/206.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>鲤鱼精</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/207.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>九命猫</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>黑童子</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>白童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/279.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>花鸟卷</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/281.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>烟烟罗</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/280.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>辉夜姬</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/200.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>桃花妖</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/201.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>雪女</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/202.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>三尾狐</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-										</div>
-									</div>
-									<div class="list-group ps-a">
-										<p class='left-btn btn ps-a'></p>
-										<p class='right-btn btn ps-a'></p>
-										<div class="list list5 ps-a">
-											<ul class='fl'>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/288.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>彼岸花</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/287.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>匣中少女</span>
-														</p>
-														<i class='ps-a'></i>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/285.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto3'>鸩</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/286.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto2'>以津真天</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/283.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto3'>荒</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/282.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>金鱼姬</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/275.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>万年竹</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/273.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>青坊主</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/274.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>古笼火</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/276.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto4'>夜叉</span>
-														</p>
-													</div>
-												</li>
-												<li>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/277.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>黑童子</span>
-														</p>
-													</div>
-													<div class="top ps-r">
-														<img src="images/index/content/shishen/278.png" alt="" width='85' height='88'>
-														<p class='ps-a'>
-															<span  class='auto1'>白童子</span>
-														</p>
-													</div>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="second ps-a content">
-							<div class="containers">
-								<article class="detail-persons fl">
-									<section class="persons on ps-r">
-										<a href="javascript:void(0)">晴明</a>
-										<i class="ps-a"></i>
-									</section>
-									<section class="persons ps-r">
-										<a href="javascript:void(0)">神乐</a>
-										<i class="ps-a"></i>
-									</section>
-									<section class="persons ps-r">
-										<a href="javascript:void(0)">源博雅</a>
-										<i class="ps-a"></i>
-									</section>
-									<section class="persons ps-r">
-										<a href="javascript:void(0)">八百比丘尼</a>
-										<i class="ps-a"></i>
-									</section>
-								</article>
-								<article class="description-persons ps-r fl">
-									<ul>
-										<li class="ps-a">
-											<img class="fl" src="images/index/content/zhujue_qingming.png" alt="" width="302" height="338">
-											<div class="contents fl">
-												<h4></h4>
-												<h3>晴明</h3>
-												<p class="line"></p>
-												<p class="content">京都城中极具盛名的天才阴阳师却不知为何失去了自己的记忆等待着他的是寻回记忆的喜悦还是不堪回首的残忍真相</p>
-											</div>
-										</li>
-										<li class="ps-a">
-											<img class="fl" src="images/index/content/zhujue_shenle.png" alt="" width="302" height="338">
-											<div class="contents fl">
-												<h4></h4>
-												<h3>神乐</h3>
-												<p class="line"></p>
-												<p class="content">善良而沉默的神秘少女 失忆后便跟随在晴明身边拥有敏锐的直觉和强大的通灵能力以及不为人知的过去</p>
-											</div>
-										</li>
-										<li class="ps-a">
-											<img class="fl" src="images/index/content/zhujue_yby.png" alt="" width="302" height="338">
-											<div class="contents fl">
-												<h4></h4>
-												<h3>源博雅</h3>
-												<p class="line"></p>
-												<p class="content">拥有皇室血统的贵族青年 擅长弓术与结界之术 性情孤傲爽直 但似乎一直在寻找某个重要的人</p>
-											</div>
-										</li>
-										<li class="ps-a">
-											<img class="fl" src="images/index/content/zhujue_bqn.png" alt="" width="302" height="338">
-											<div class="contents fl">
-												<h4></h4>
-												<h3>八宝比丘尼</h3>
-												<p class="line"></p>
-												<p class="content">因误食人鱼肉而不老不死 能力超凡的流浪占卜师一直在凤凰林中等待着占卜之梦预言的命运之人</p>
-											</div>
-										</li>
-									</ul>
-								</article>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</article>
-			<!--stratage-->
-			<article class="stratage">
-				<div class="container clearfix">
-					<div class="left fl clearfix ps-r">
-						<div class="input fl">
-							<input type="text" placeholder="请输入问题">
-						</div>
-						<p class="btn fl"></p>
-						<ul class="list-item ps-a">
-							<!-- <li><a href="#">content</a></li>
-							<li><a href="#">content</a></li> -->
-						</ul>
-						<div class="banner-content">
-							<div class="banners ps-r">
-								<div class="img ps-a ">
-									<img class="fl" src="images/index/strategy/banner1.jpg" alt="" width="368" height="228">
-									<img class="fl" src="images/index/strategy/banner2.jpg" alt="" width="368" height="228">
-								</div>
-								<div class="btn ps-a">
-									<p class="on"></p>
-									<p></p>
-								</div>
-							</div>
-							<div class="content-list">
-								<a class="fl ps-r" href="javascript:void(0)">
-									<span class="ps-a"></span>
-									<i class="ps-a on"></i>
-								</a>
-								<a class="fl ps-r" href="javascript:void(0)">
-									<span class="ps-a"></span>
-									<i class="ps-a on"></i>
-								</a>
-								<a class="fl ps-r" href="javascript:void(0)">
-									<span class="ps-a"></span>
-									<i class="ps-a on"></i>
-								</a>
-								<a class="fl ps-r" href="javascript:void(0)">
-									<span class="ps-a"></span>
-									<i class="ps-a"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="right fl">
-						<div class="title">
-							<i class="stratege fl"></i>
-							<i class="dotted fl"></i>
-							<p class="stratege-items ps-r fl">
-								<i class="bg ps-a"></i>
-								<span class="word green-hand"></span>
-							</p>
-							<i class="dotted fl"></i>
-							<p class="stratege-items ps-r fl">
-								<i class="bg ps-a"></i>
-								<span class="word god"></span>
-							</p>
-							<i class="dotted fl"></i>
-							<p class="stratege-items ps-r fl">
-								<i class="bg ps-a"></i>
-								<span class="word skill"></span>
-							</p>
-							<i class="dotted fl"></i>
-							<p class="stratege-items ps-r fl">
-								<i class="bg ps-a"></i>
-								<span class="word method"></span>
-							</p>
-						</div>
-						<div class="contents ps-r ">
-							<div class="content-bottom ps-a">
-							<div class="detail-content fl">
-								<a class="ps-r" href="javascript:void(0)">
-									<!-- <p class="abstract-content">【<span>新手</span>】 逆转的胜利！反击流式神阵容推荐！</p>
-									<p class="author">作者：<span>迷い子</span></p> -->
-								</a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-							</div>
-							<div class="detail-content fl">
-								<a class="ps-r" href="javascript:void(0)">
-									 <!--<p class="abstract-content">【<span>新手</span>】 逆转的胜利！反击流式神阵容推荐！</p>
-									<p class="author">作者：<span>迷い子</span></p> -->
-								</a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-							</div>
-							<div class="detail-content fl">
-								<a class="ps-r" href="javascript:void(0)">
-									<!-- <p class="abstract-content">【<span>新手</span>】 逆转的胜利！反击流式神阵容推荐！</p>
-									<p class="author">作者：<span>迷い子</span></p> -->
-								</a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-							</div>
-							<div class="detail-content fl">
-								<a class="ps-r" href="javascript:void(0)">
-									<!-- <p class="abstract-content">【<span>新手</span>】 逆转的胜利！反击流式神阵容推荐！</p>
-									<p class="author">作者：<span>迷い子</span></p> -->
-								</a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-							</div>
-							<div class="detail-content fl">
-								<a class="ps-r" href="javascript:void(0)">
-									<!-- <p class="abstract-content">【<span>新手</span>】 逆转的胜利！反击流式神阵容推荐！</p>
-									<p class="author">作者：<span>迷い子</span></p> -->
-								</a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-								<a class="ps-r" href="javascript:void(0)"></a>
-							</div>
-						</div>
-						</div>
-					</div>
-				</div>
-			</article>
-			<!--special-area-->
-			<article class="special-area ">
-				<div class="controller">
-					<i class="area-icon"></i>
-					<div class="banner-controller ps-r">
-						<a href="javascript:void(0)" class="ps-r on fl">
-							<p class="ps-a">精选推荐</p>
-							<i class="ps-a bg1"></i>
-						</a>
-						<a href="javascript:void(0)" class="ps-r fl">
-							<p class="ps-a">同人绘画</p>
-							<i class="ps-a bg2"></i>
-						</a>
-						<a href="javascript:void(0)" class="ps-r fl">
-							<p class="ps-a">玩家COS</p>
-							<i class="ps-a bg3"></i>
-						</a>
-						<a href="javascript:void(0)" class="ps-r fl">
-							<p class="ps-a">同人视频</p>
-							<i class="ps-a bg4"></i>
-						</a>
-						<a href="javascript:void(0)" class="ps-r fl">
-							<p class="ps-a">同人小说</p>
-							<i class="ps-a bg5"></i>
-						</a>
-						<a href="javascript:void(0)" class="ps-r fl">
-							<p class="ps-a">高手在民间</p>
-							<i class="ps-a bg6"></i>
-						</a>
-						<i class="contribution ps-a" ></i>
-					</div>
-				</div>
-				<div class="banners ps-r">
-					<ul class="fl">
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-					<ul class="fl">
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-					<ul class="fl">
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-					<ul class="fl">
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-					<ul class="fl">
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-					<ul class="fl">
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</div>
-			</article>
-			<!--下面的mv部分-->
-			<article class="mv">
-				<div class="container">
-					<section class="mv-details fl">
-						<ul class="content">
-							<li class="ps-r">
-								<i class="ps-a"></i>
-							</li>
-							<li>
-								<img src="images/index/video/1.jpg" alt="" width="270" height="154">
-								<p>《阴阳师》核心玩法</p>
-							</li>
-							<li>
-								<img src="images/index/video/2.jpg" alt="" width="270" height="154">
-								<p>《阴阳师》声优阵容</p>
-							</li>
-							<li>
-								<img src="images/index/video/3.jpg" alt="" width="270" height="154">
-								<p>【阴阳师X极乐净土】抽式神不如跳舞</p>
-							</li>
-						</ul>
-					</section>
-					<section class="wallpaper fl">
-						<ul class="content">
-							<li class="ps-r">
-								<i class="ps-a"></i>
-							</li>
-							<li>
-								<img src="images/index/video/4.jpg" alt="" width="270" height="154">
-								<p>游戏场景原画</p>
-							</li>
-							<li>
-								<img src="images/index/video/5.jpg" alt="" width="270" height="154">
-								<p>游戏场景原画</p>
-							</li>
-							<li>
-								<img src="images/index/video/6.jpg" alt="" width="270" height="154">
-								<p>游戏角色原画</p>
-							</li>
-						</ul>
-					</section>
-				</div>
-			</article>
-			<!--倒数第三部分 活动专区-->
-			<article class="activities">
-				<section class="left fl">
-					<img src="images/index/activity/activity_title.png" alt="" width="257" height="370">
-				</section>
-				<section class="right fr">
-					<ul>
-						<li class="ps-r">
-							<img src="images/index/activity/1.png" alt="" width="270" height="153">
-							<p class="content ps-a">“浮妖百态”式神设计大赛火热投稿中</p>
-						</li>
-						<li class="ps-r">
-							<img src="images/index/activity/2.jpg" alt="" width="270" height="153">
-							<p class="content ps-a">农夫山泉“舔瓶我崽”揭盖有奖</p>
-						</li>
-						<li class="ps-r">
-							<img src="images/index/activity/3.jpg" alt="" width="270" height="153">
-							<p class="content ps-a">KFC跨界应援开启！</p>
-						</li>
-						<li class="ps-r">
-							<img src="images/index/activity/4.jpg" alt="" width="270" height="153">
-							<p class="content ps-a">贴吧活动：地表最萌告白开启</p>
-						</li>
-						<li class="ps-r">
-							<img src="images/index/activity/5.jpg" alt="" width="270" height="153">
-							<p class="content ps-a">大触觉醒第二季！同人插画大赛</p>
-						</li>
-						<li class="ps-r">
-							<img src="images/index/activity/6.jpg" alt="" width="270" height="153">
-							<p class="content ps-a">天机谱：有奖攻略互动计划</p>
-						</li>
-					</ul>
-				</section>
-			</article>
-			<!--倒数第二部分 二维码扫描-->
-			<article class="erweicode">
-				<section class="content fl">
-					<a class="image" href="javascript:void(0)">
-						<img src="images/index/logo.png" alt="" width="70" height="199">
-					</a>
-					<a class="erweicode-info ps-r" href="javascript:void(0)">
-						<p class="p1 fl">关注官方微博</p>
-						<p class="p2 fl">扫描二维码</p>
-						<h3 class="fl">官方微博</h3>
-						<p class="weblog ps-a">
-							<i class="ps-a"></i>
-							微博名:
-							<span href="javascript:void(0)">网易阴阳师手游</span>
-						</p>
-						<div class="img ps-a">
-							<img src="images/index/contact/wb.png" alt="" width="122" height="122">
-						</div>
-					</a>
-					<a class="erweicode-info ps-r" href="javascript:void(0)">
-						<p class="p1 fl">关注微信公众号</p>
-						<p class="p2 fl">扫描二维码</p>
-						<h3 class="fl">微信公众号</h3>
-						<p class="weblog ps-a">
-							微博名:
-							<span href="javascript:void(0)">yinyangshi163</span>
-						</p>
-						<div class="img ps-a">
-							<img src="images/index/contact/wx.jpg" alt="" width="122" height="122">
-						</div>
-					</a>
-					<a class="telephone" href="javascript:void(0)">
-						<i></i>
-						<p class="client-tel">客户服务电话</p>
-						<p class="tel-number">0571-26201179</p>
-						<p class="questions">
-							<i></i>
-							<span href="javascript:void(0)">问题反馈</span>
-							<span href="javascript:void(0)">精灵咨询</span>
-						</p>
-					</a>
-				</section>
-				<section class="icon-top fl"></section>
-			</article>
-			<footer class="footer">
-				<h3></h3>
-				<div class="hover ps-r">
-					<i class="experience"></i>
-					<i class="onoff"></i>
-					<i class="door"></i>
-					<div class="erweicodes ps-a">
-						<i class="erweicode-details"></i>
-						<span class="ps-a"></span>
-					</div>
-				</div>
-			</footer>
+			<div class="final">
+				<h3>
+					最终得分：
+					<span></span>
+				</h3>
+				<p>
+					<button>重新选择模式</button>
+				</p>
+			</div>
 
 		</div>
+		
+		<script>
+		{
+			let bgArr = ["img/bg_1.jpg","img/bg_2.jpg","img/bg_3.jpg","img/bg_4.jpg"];
+				oBox = document.getElementById('box'),
+				oPlane = oBox.getElementsByClassName("planes")[0],
+				oMask = oBox.getElementsByClassName("mask")[0],
+				oScore = oBox.querySelector(".planes .score"),
+				
+				oFinal = oBox.getElementsByClassName("final")[0],
+				oBtn = oFinal.getElementsByTagName("button")[0];
+				oSpan = oFinal.querySelector("h3  span"),
+				aLi = oBox.querySelectorAll(".mask ul li"),
+				length = aLi.length,
+				timerEnemy = null,
+				timerFire = null,
+				score = 0,
+				num = 0   //用来给敌军计数，到了一定的数量生成一个超级大的敌军
+			;	
+			console.log( oBtn );
+			for( let i=0;i<length;i++){
+				aLi[i].onclick = function(e){
+					e = e || window.event;
+					oBox.style.backgroundImage = `url(${bgArr[i]})`;
+					oBox.className ="on";
+					oMask.style.display = "none";
+					oScore.style.display = "block";
+					startGame({
+						x:e.clientX,
+						y:e.clientY,
+						index:i
+					});
+				}
+			}
+
+			function startGame(option){
+				//
+				
+
+				//敌方飞机 + 我方战机加子弹
+				enemy(option,ourPlane(option));
+			}	
+			
+			class Fn
+			{
+				constructor(json){
+					this.src = json.src;
+					this.className = json.className;
+					this.width = json.width;
+					this.height = json.height;
+				}
+			}
+			//此处的oBox的offsetLeft不用一个变量名定义的原因就是当鼠标移动出去，改变了浏览器窗口的宽度之后，offsetLeft就会有变化。
+			function ourPlane(option){
+				let oImg = Object.assign( new Image(),new Fn({
+					src:"img/plane_1.png",
+					className:"active-plane",
+					width:61,
+					height:47.5
+				}));
+				oImg.HP = 5;
+				oImg.style.left = option.x - oBox.offsetLeft - oImg.width / 2 + "px";
+				oImg.style.top = option.y - oBox.offsetTop - oImg.height / 2 + "px";
+				oPlane.appendChild(oImg);
+				
+				//鼠标移动
+				document.onmousemove = function(e){
+					e = e || window.event;
+					let layerX = e.clientX - oBox.offsetLeft - oImg.width / 2;
+					let layerY = e.clientY - oBox.offsetTop - oImg.height / 2;
+					let [ maxL,minL,maxH,minH] = [
+						oBox.offsetWidth -oImg.width / 2,
+						-oImg.width / 2,
+						oBox.offsetHeight - oImg.height / 2,
+						0
+					];
+					layerX = Math.max( minL,layerX );
+					layerX = Math.min( maxL ,layerX );
+					layerY = Math.max( minH,layerY );
+					layerY = Math.min( maxH,layerY);
+					oImg.style.left = layerX + "px";
+					oImg.style.top = layerY + "px";
+				}
+
+				//发射子弹
+				timerFire = setInterval(() => {
+					let img = new Image();
+					img.src = "img/fire.png";
+					img.width = 40;
+					img.height = 40;
+					img.className = "img-fire";
+					img.style.left = oImg.offsetLeft + oImg.width / 2 - img.width / 2 + "px";
+					img.style.top = oImg.offsetTop -  img.height / 5 + "px";
+
+					oPlane.appendChild(img);
+	
+					(function m(){
+						if(!img.parentNode)return;
+						let tops = img.offsetTop - 10;
+						if( tops > - img.width ){
+							img.style.top = tops  + "px";
+							requestAnimationFrame(m);
+						}else{
+							oPlane.removeChild(img);
+						}
+					})();
 
 
-		<script src="js/jQuery.js"></script>
-		<script src="js/fanData.js"></script>
-		<script src="js/strateData.js"></script>
-		<script type="text/javascript" src='js/index.js'></script>
+				} ,[200,150,100,20][option.index]);
+
+
+				return oImg;
+			}	
+
+			//敌军
+			function enemy(option,dom){
+				//生成敌军
+				timerEnemy = setInterval(()=>{
+					num ++;
+					let bool = num%15?false:true;
+					let oEnemy = Object.assign( new Image() , new Fn({
+						src : bool?"img/enemy_big.png":"img/enemy_small.png",
+						className:bool?"enemy-big":"enemy-small",
+						width:bool?130:40,
+						height:bool?100:20
+					}));
+					oEnemy.HP = bool?15:1;
+					oEnemy.style.left= Math.floor(Math.random()*oBox.offsetWidth) - oEnemy.width / 2 + "px";
+					oEnemy.style.top = - oEnemy.height / 2  + "px";
+					oPlane.appendChild( oEnemy );
+
+					let random = Math.random()*4 + 2;
+					console.log( random );
+					(function m(){
+						if( !oEnemy.parentNode )return;
+						let tops = oEnemy.offsetTop + random;
+						if( tops < oBox.offsetHeight - oEnemy.width  / 2 ){
+							oEnemy.style.top = tops  + "px";
+							requestAnimationFrame(m);
+						}else{
+							oPlane.removeChild( oEnemy );
+						}
+						//碰撞检测
+						(function(){
+							if( !oEnemy.parentNode )return;
+							let fire = document.getElementsByClassName("img-fire");
+							for(let key of fire){
+								if(!hite( oEnemy , key)){
+									//撞上之后做什么
+									oEnemy.HP -- ;
+									if(oEnemy.HP <= 0){
+										score += 20;
+										oScore.innerHTML = score.toString().padStart(7,0);
+										moves(oEnemy,true);
+										oPlane.removeChild(key);
+										oPlane.removeChild(oEnemy);
+										return;
+									}
+									
+								}
+							}
+							//我军检测
+							if( !oEnemy.parentNode )return;
+							if( !dom.parentNode )return;
+							if( !hite( oEnemy,dom)){
+								//撞上之后做的事儿
+								oEnemy.HP -= 10;
+								dom.HP -=1;
+
+								//敌军血量小于0
+								if(oEnemy.HP <=0){
+									score += 20;
+									oScore.innerHTML = score.toString().padStart(7,0);
+									moves(oEnemy,true);
+									oPlane.removeChild(oEnemy);
+								}
+								if( dom.HP <= 0){
+									let img = moves(dom,false);
+									oPlane.removeChild(dom);
+									setTimeout(() => {
+										init(img);
+									},1000);
+								}
+							}
+						})();
+					})();
+						
+				},[500,400,300,50][option.index]);
+			}
+
+			//撞上之后做什么
+			function moves(oEnemy,bools){
+				if(!oEnemy.parentNode)return;
+				let newImg =  Object.assign( new Image() , new Fn({
+						src : bools?"img/boom_small.png":"img/boom_big.png",
+						className:"enemy-boom",
+						width:32,
+						height:32
+					}));
+				newImg.style.left = oEnemy.offsetLeft + "px";
+				newImg.style.top = oEnemy.offsetTop + "px";
+				oPlane.appendChild(newImg);
+				if(!bools)return newImg;
+				newImg.classList.add("on");
+				setTimeout(()=>{
+					oPlane.removeChild(newImg);
+				},1000);
+			}
+
+
+			//碰撞检测,撞击返回false，不撞返回true
+			function hite(obj1,obj2){
+				let [L1,R1,T1,B1] = [
+					obj1.offsetLeft,
+					obj1.offsetLeft + obj1.offsetWidth,
+					obj1.offsetTop,
+					obj1.offsetTop + obj1.offsetHeight
+				];
+				let [L2,R2,T2,B2] = [
+					obj2.offsetLeft,
+					obj2.offsetLeft + obj2.offsetWidth,
+					obj2.offsetTop,
+					obj2.offsetTop + obj2.offsetHeight
+				];
+				return (L1 > R2 || R1 < L2 || T1 > B2 || B1 < T2);
+			}
+
+			//撞上结束之后做什么事
+			function init(img){
+				clearInterval(timerEnemy);
+				clearInterval(timerFire);
+				oSpan.innerHTML = oScore.innerHTML;
+				oFinal.style.display= "block";
+				
+				oBtn.onclick = function(){
+					oBox.classList.remove("on");
+					oFinal.style.display = "none";
+					oMask.style.display = "block";
+					oPlane.removeChild(img);
+					oBox.style.backgroundImage = `url(${bgArr[0]})`;
+				}
+			}
+		}
+		</script>
     </body>
 </html>
